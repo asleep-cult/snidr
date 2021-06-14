@@ -1,6 +1,4 @@
-/* atomic
- *
- * When writing code that utilizes multiple CPU (Core)s,
+/* When writing code that utilizes multiple CPU (Core)s,
  * you must take care to ensure that access to shared memory
  * happens in the correct order. Imagine you have a flag
  * representing the state of a mutex, one CPU tries to lock the mutex
@@ -37,8 +35,6 @@
 #define snidr_compiler_wfence() \
     _WriteBarrier()
 
-#if defined(SNIDR_ARCH_i386) || defined(SNIDR_ARCH_AMD64)
-
 #define snidr_atomic_rwfence() \
     snidr_compiler_rwfence();  \
     __asm {                    \
@@ -56,8 +52,6 @@
     __asm {                   \
         sfence;               \
     }
-
-#endif /* defined(SNIDR_ARCH_i386) || defined(SNIDR_ARCH_AMD64) */
 
 #else /* _MSC_VER */
 
