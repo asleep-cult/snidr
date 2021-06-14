@@ -37,21 +37,15 @@
 
 #define snidr_atomic_rwfence() \
     snidr_compiler_rwfence();  \
-    __asm {                    \
-        mfence;                \
-    }                          
+    _mm_mfence();                
 
 #define snidr_atomic_rfence() \
     snidr_compiler_rfence();  \
-    __asm {                   \
-        lfence;               \
-    }
+    _mm_lfence();
 
 #define snidr_atomic_wfence() \
     snidr_compiler_wfence();  \
-    __asm {                   \
-        sfence;               \
-    }
+    _mm_sfence();
 
 #else /* _MSC_VER */
 
