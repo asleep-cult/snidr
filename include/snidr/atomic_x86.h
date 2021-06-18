@@ -1,5 +1,8 @@
+#ifndef SNIDR_ATOMIC_x86_H
+#define SNIDR_ATOMIC_x86_H
+
 #include "snidr.h"
-#include "fence_compiler.h"
+#include "atomic.h"
 
 #ifdef _MSC_VER
 
@@ -25,5 +28,7 @@
 
 #define snidr_rwfence() \
     __asm__ volatile("mfence":::"memory");
+
+#endif
 
 #endif
