@@ -38,8 +38,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#ifdef SNIDR_OS_WIN
-#   include <windows.h>
-#endif
+#include "snidr/atomic.h"
 
 #endif
